@@ -16,5 +16,8 @@ sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generat
 # Fix Material theme progressbar font size
 sed -i 's/1.3em/1em/g' package/feeds/luci/luci-theme-material/htdocs/luci-static/material/cascade.css
 
+# Enable wifi
+sed -i 's/.disabled=1/.disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
 ## Enable vlmcsd auto activation
 echo srv-host=_vlmcs._tcp.lan,OpenWrt.lan,1688,0,100 >> package/network/services/dnsmasq/files/dnsmasq.conf
