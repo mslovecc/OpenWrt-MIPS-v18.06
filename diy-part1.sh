@@ -14,10 +14,18 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
+# Fetch and list tags
+git fetch --tags
+git tag -l
+ 
+# Use OpenWrt 19.07.7 release
+git checkout v21.02.1
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-chmod +x $GITHUB_WORKSPACE/lede/copy.sh
-$GITHUB_WORKSPACE/lede/copy.sh
+
+chmod +x $GITHUB_WORKSPACE/lede/copy-amd64.sh
+$GITHUB_WORKSPACE/lede/copy-amd64.sh
+git clone https://github.com/mslovecc/luci-theme-argon.git package/luci-theme-argon
 mkdir package/ming
-git clone https://github.com/mslovecc/luci-app-vlmcsd.git package/ming/luci-app-vlmcsd
+git clone https://github.com/mslovecc/luci-app-pushbot package/ming/luci-app-pushbot
 git clone https://github.com/mslovecc/openwrt-vlmcsd.git package/ming/openwrt-vlmcsd
 git clone https://github.com/mslovecc/ddns-scripts_aliyun.git package/ming/ddns-scripts_aliyun
