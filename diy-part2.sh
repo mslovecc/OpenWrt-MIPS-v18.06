@@ -11,4 +11,10 @@
 #
 
 # Modify default IP
-# sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
+
+# Fix Material theme progressbar font size
+sed -i 's/1.3em/1em/g' package/feeds/luci/luci-theme-material/htdocs/luci-static/material/cascade.css
+
+## Enable vlmcsd auto activation
+echo srv-host=_vlmcs._tcp.lan,OpenWrt.lan,1688,0,100 >> package/network/services/dnsmasq/files/dnsmasq.conf
