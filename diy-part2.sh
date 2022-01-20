@@ -18,7 +18,7 @@ sed -i 's/4Mlzma/8Mlzma/g' target/linux/ar71xx/image/common-tp-link.mk
 sed -i 's/3904k/7936k/g' target/linux/ar71xx/image/common-tp-link.mk
 
 # extend Netgear firmware size
-
+sed -i 's/3712k(firmware)/7808k(firmware)/g' target/linux/ar71xx/image/legacy.mk
 
 # Fix Material theme progressbar font size
 sed -i 's/1.3em/1em/g' package/feeds/luci/luci-theme-material/htdocs/luci-static/material/cascade.css
