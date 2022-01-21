@@ -27,9 +27,9 @@ sed -i 's/1.3em/1em/g' package/feeds/luci/luci-theme-material/htdocs/luci-static
 sed -i 's/.disabled=1/.disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # Set Wifi SSID and Password
-sed -i 's/.ssid\=OpenWrt/.ssid\=Tomato24\/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i 's/.encryption\=none/.encryption\=psk-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i '/set\ wireless.default_radio\$\{devidx\}.encryption\=psk-mixed/a set\ wireless.default_radio\$\{devidx\}.key\=Psn@2416' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/.ssid=OpenWrt/.ssid=Tomato24/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/.encryption=none/.encryption=psk-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i '/set\ wireless.default_radio${devidx}.encryption=psk-mixed/a set\ wireless.default_radio${devidx}.key=Psn@2416' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # DHCP defaults
 sed -i 's/100/10/g' package/network/services/dnsmasq/files/dhcp.conf
